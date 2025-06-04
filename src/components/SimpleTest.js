@@ -3,98 +3,79 @@ import React, { useState } from 'react';
 const SimpleTest = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
+  const slideStyle = {
+    minHeight: '100vh',
+    background: 'white',
+    padding: '60px 40px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    maxWidth: '1200px',
+    margin: '0 auto',
+    fontFamily: 'Arial, sans-serif'
+  };
+
+  const titleStyle = {
+    fontSize: '48px',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: '60px',
+    color: '#1e293b',
+    borderBottom: '4px solid #fbbf24',
+    paddingBottom: '20px'
+  };
+
+  const subtitleStyle = {
+    fontSize: '32px',
+    fontWeight: 'bold',
+    color: '#1e293b',
+    marginBottom: '40px',
+    textAlign: 'center'
+  };
+
+  const cardStyle = {
+    background: '#f8fafc',
+    padding: '30px',
+    borderRadius: '12px',
+    border: '2px solid #e2e8f0',
+    marginBottom: '30px',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+  };
+
   const tabStyle = (isActive) => ({
-    padding: '12px 24px',
-    margin: '0 4px',
+    padding: '15px 30px',
+    margin: '0 5px',
     border: 'none',
-    borderRadius: '8px',
+    borderRadius: '10px',
     cursor: 'pointer',
-    fontSize: '14px',
-    fontWeight: '600',
+    fontSize: '16px',
+    fontWeight: 'bold',
     transition: 'all 0.3s ease',
-    background: isActive ? 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%)' : '#f8fafc',
+    background: isActive ? '#fbbf24' : '#e2e8f0',
     color: isActive ? 'white' : '#64748b',
     boxShadow: isActive ? '0 4px 12px rgba(251, 191, 36, 0.3)' : 'none'
   });
 
-  const cardStyle = {
-    background: 'white',
-    padding: '24px',
-    borderRadius: '16px',
-    border: '1px solid #e2e8f0',
-    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-    marginBottom: '20px'
-  };
-
   return (
-    <div style={{minHeight: '100vh', background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)'}}>
-      {/* Header */}
-      <div style={{
-        background: 'linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%)',
-        color: 'white',
-        padding: '60px 20px',
-        textAlign: 'center'
-      }}>
-        <h1 style={{
-          fontSize: '56px',
-          fontWeight: 'bold',
-          margin: '0 0 16px 0',
-          background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text'
-        }}>
-          CONFLUENCE BULLION
-        </h1>
-        <p style={{fontSize: '20px', margin: '0 0 32px 0', opacity: 0.9}}>
-          개인이 할 수 없는 금 정식 수입, 우리가 함께 모여 가능하게 합니다
-        </p>
-        <div>
-          <button style={{
-            background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%)',
-            color: 'white',
-            padding: '14px 28px',
-            border: 'none',
-            borderRadius: '8px',
-            fontSize: '16px',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            marginRight: '12px',
-            boxShadow: '0 4px 12px rgba(251, 191, 36, 0.3)'
-          }}>
-            투자 시작하기
-          </button>
-          <button style={{
-            background: 'rgba(255, 255, 255, 0.2)',
-            color: 'white',
-            padding: '14px 28px',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
-            borderRadius: '8px',
-            fontSize: '16px',
-            fontWeight: 'bold',
-            cursor: 'pointer'
-          }}>
-            자세히 알아보기
-          </button>
-        </div>
-      </div>
-
+    <div style={{background: '#f1f5f9', minHeight: '100vh'}}>
       {/* Navigation */}
       <div style={{
         background: 'white',
-        padding: '0 20px',
-        borderBottom: '1px solid #e2e8f0',
+        padding: '20px',
+        borderBottom: '2px solid #e2e8f0',
         position: 'sticky',
         top: 0,
-        zIndex: 100
+        zIndex: 100,
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
       }}>
-        <div style={{maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'center', padding: '16px 0'}}>
+        <div style={{maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '10px'}}>
           {[
-            { id: 'overview', label: '🏛️ 사업 개요' },
-            { id: 'business', label: '💼 비즈니스 모델' },
-            { id: 'pricing', label: '💰 가격 구조' },
-            { id: 'products', label: '🥇 상품 구성' },
-            { id: 'roadmap', label: '🚀 로드맵' }
+            { id: 'overview', label: '사업 개요' },
+            { id: 'business', label: '비즈니스 모델' },
+            { id: 'revenue', label: '수익 구조' },
+            { id: 'nft', label: 'NFT 담보대출' },
+            { id: 'market', label: '시장 분석' },
+            { id: 'roadmap', label: '로드맵' }
           ].map(tab => (
             <button
               key={tab.id}
@@ -108,52 +89,57 @@ const SimpleTest = () => {
       </div>
 
       {/* Content */}
-      <div style={{maxWidth: '1200px', margin: '0 auto', padding: '40px 20px'}}>
+      <div style={slideStyle}>
         
         {/* 사업 개요 */}
         {activeTab === 'overview' && (
           <div>
-            <h2 style={{fontSize: '36px', fontWeight: 'bold', textAlign: 'center', marginBottom: '40px', color: '#1e293b'}}>
-              컨플루언스 불리온 사업 개요
-            </h2>
+            <h1 style={titleStyle}>CONFLUENCE BULLION</h1>
+            <h2 style={subtitleStyle}>금 수입 대행 및 NFT 담보대출 플랫폼</h2>
             
-            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '40px'}}>
-              <div style={cardStyle}>
-                <div style={{fontSize: '48px', textAlign: 'center', marginBottom: '16px'}}>💎</div>
-                <h3 style={{fontSize: '24px', fontWeight: 'bold', marginBottom: '12px', color: '#1e293b'}}>프리미엄 서비스</h3>
-                <p style={{color: '#64748b', lineHeight: '1.6'}}>
-                  한국 소비자들이 기존에 지불해왔던 높은 금 소매 프리미엄을 제거하고, 
-                  국제 금 시세에 근접한 가격으로 투명하게 고품질 금을 구매할 수 있습니다.
-                </p>
-              </div>
-              
-              <div style={cardStyle}>
-                <div style={{fontSize: '48px', textAlign: 'center', marginBottom: '16px'}}>🤝</div>
-                <h3 style={{fontSize: '24px', fontWeight: 'bold', marginBottom: '12px', color: '#1e293b'}}>공동구매 혁신</h3>
-                <p style={{color: '#64748b', lineHeight: '1.6'}}>
-                  개인이 불가능한 대량 수입을 공동구매를 통해 실현하여, 
-                  모든 참여자가 도매가격의 혜택을 누릴 수 있는 혁신적인 시스템입니다.
-                </p>
-              </div>
+            <div style={{...cardStyle, textAlign: 'center', background: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)'}}>
+              <h3 style={{fontSize: '28px', color: '#92400e', marginBottom: '20px'}}>핵심 가치 제안</h3>
+              <p style={{fontSize: '20px', color: '#a16207', lineHeight: '1.6'}}>
+                개인이 할 수 없는 금 정식 수입을 공동구매로 실현하고,<br/>
+                수입된 금을 NFT로 증권화하여 담보대출 서비스 제공
+              </p>
             </div>
 
-            <div style={{...cardStyle, background: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)'}}>
-              <h3 style={{fontSize: '28px', fontWeight: 'bold', textAlign: 'center', marginBottom: '24px', color: '#92400e'}}>
-                핵심 가치 제안
-              </h3>
-              <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px'}}>
-                {[
-                  { icon: '🏭', title: '개인이 불가능한 직수입', desc: '복잡한 국제 금 수입 과정을 전문적으로 대행' },
-                  { icon: '📊', title: '투명한 가격 구조', desc: '모든 비용 요소와 마진을 공개하는 완전 투명 정책' },
-                  { icon: '💪', title: '공동구매의 힘', desc: '소비자 집단의 구매력을 하나로 모아 가격 경쟁력 확보' },
-                  { icon: '🛡️', title: '신뢰할 수 있는 품질', desc: '엄격한 인증 과정을 통한 품질 보증' }
-                ].map((item, index) => (
-                  <div key={index} style={{textAlign: 'center'}}>
-                    <div style={{fontSize: '32px', marginBottom: '8px'}}>{item.icon}</div>
-                    <h4 style={{fontWeight: 'bold', marginBottom: '8px', color: '#92400e'}}>{item.title}</h4>
-                    <p style={{fontSize: '14px', color: '#a16207'}}>{item.desc}</p>
-                  </div>
-                ))}
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '30px'}}>
+              <div style={cardStyle}>
+                <h3 style={{fontSize: '24px', color: '#1e293b', marginBottom: '15px', textAlign: 'center'}}>
+                  🏭 금 수입 대행
+                </h3>
+                <ul style={{fontSize: '18px', lineHeight: '1.8', color: '#374151'}}>
+                  <li>• 개인 불가능한 대량 금 수입 대행</li>
+                  <li>• 13% 관부가세 절약 효과</li>
+                  <li>• 99.99% 순도 보장</li>
+                  <li>• 투명한 가격 구조</li>
+                </ul>
+              </div>
+
+              <div style={cardStyle}>
+                <h3 style={{fontSize: '24px', color: '#1e293b', marginBottom: '15px', textAlign: 'center'}}>
+                  🪙 NFT 증권화
+                </h3>
+                <ul style={{fontSize: '18px', lineHeight: '1.8', color: '#374151'}}>
+                  <li>• 실물 금 기반 NFT 발행</li>
+                  <li>• 분할 소유 및 거래 가능</li>
+                  <li>• 블록체인 기반 투명성</li>
+                  <li>• 즉시 담보대출 가능</li>
+                </ul>
+              </div>
+
+              <div style={cardStyle}>
+                <h3 style={{fontSize: '24px', color: '#1e293b', marginBottom: '15px', textAlign: 'center'}}>
+                  🏦 담보대출 서비스
+                </h3>
+                <ul style={{fontSize: '18px', lineHeight: '1.8', color: '#374151'}}>
+                  <li>• NFT 담보 즉시 대출</li>
+                  <li>• 5% 저금리 제공</li>
+                  <li>• LTV 70% 까지</li>
+                  <li>• 유연한 상환 조건</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -162,55 +148,155 @@ const SimpleTest = () => {
         {/* 비즈니스 모델 */}
         {activeTab === 'business' && (
           <div>
-            <h2 style={{fontSize: '36px', fontWeight: 'bold', textAlign: 'center', marginBottom: '40px', color: '#1e293b'}}>
-              비즈니스 모델
-            </h2>
+            <h1 style={titleStyle}>비즈니스 모델</h1>
             
-            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '24px'}}>
+            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', marginBottom: '40px'}}>
               <div style={{...cardStyle, background: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)'}}>
-                <h3 style={{fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', color: '#1e40af'}}>
-                  💰 주요 수익원
+                <h3 style={{fontSize: '28px', color: '#1e40af', marginBottom: '25px', textAlign: 'center'}}>
+                  📊 고객 플로우
                 </h3>
-                <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
-                  {[
-                    { label: '수입 대행 수수료', value: '2%' },
-                    { label: 'NFT 거래 수수료', value: '1%' },
-                    { label: '대출 이자 마진', value: '2%' },
-                    { label: '실물 교환 수수료', value: '0.5%' }
-                  ].map((item, index) => (
-                    <div key={index} style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      padding: '12px',
-                      background: 'white',
-                      borderRadius: '8px',
-                      boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
-                    }}>
-                      <span style={{color: '#374151'}}>{item.label}</span>
-                      <span style={{fontWeight: 'bold', color: '#1e40af'}}>{item.value}</span>
-                    </div>
-                  ))}
+                <div style={{fontSize: '18px', lineHeight: '2', color: '#1e40af'}}>
+                  <div style={{marginBottom: '15px', padding: '15px', background: 'white', borderRadius: '8px'}}>
+                    <strong>1단계:</strong> 금 공동구매 참여
+                  </div>
+                  <div style={{marginBottom: '15px', padding: '15px', background: 'white', borderRadius: '8px'}}>
+                    <strong>2단계:</strong> 실물 금 NFT 수령
+                  </div>
+                  <div style={{marginBottom: '15px', padding: '15px', background: 'white', borderRadius: '8px'}}>
+                    <strong>3단계:</strong> NFT 담보대출 신청
+                  </div>
+                  <div style={{padding: '15px', background: 'white', borderRadius: '8px'}}>
+                    <strong>4단계:</strong> 즉시 현금 수령
+                  </div>
                 </div>
               </div>
 
               <div style={{...cardStyle, background: 'linear-gradient(135deg, #fecaca 0%, #fca5a5 100%)'}}>
-                <h3 style={{fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', color: '#dc2626'}}>
-                  🎯 고객 절약 효과
+                <h3 style={{fontSize: '28px', color: '#dc2626', marginBottom: '25px', textAlign: 'center'}}>
+                  💰 고객 혜택
                 </h3>
                 <div style={{textAlign: 'center'}}>
-                  <div style={{fontSize: '64px', fontWeight: 'bold', color: '#dc2626', marginBottom: '8px'}}>13%</div>
-                  <div style={{fontSize: '20px', color: '#374151', marginBottom: '8px'}}>관부가세 절약</div>
-                  <div style={{color: '#6b7280', marginBottom: '16px'}}>1억원 투자 시</div>
+                  <div style={{fontSize: '48px', fontWeight: 'bold', color: '#dc2626', marginBottom: '10px'}}>13%</div>
+                  <div style={{fontSize: '20px', color: '#374151', marginBottom: '10px'}}>관부가세 절약</div>
+                  <div style={{fontSize: '16px', color: '#6b7280', marginBottom: '20px'}}>+ 5% 저금리 대출</div>
                   <div style={{
-                    fontSize: '28px',
+                    fontSize: '24px',
                     fontWeight: 'bold',
                     color: '#dc2626',
                     background: 'white',
-                    padding: '16px',
-                    borderRadius: '12px',
-                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+                    padding: '15px',
+                    borderRadius: '10px'
                   }}>
-                    1,300만원 절약
+                    총 18% 금융 혜택
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style={{...cardStyle, background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)'}}>
+              <h3 style={{fontSize: '28px', color: '#16a34a', marginBottom: '25px', textAlign: 'center'}}>
+                🎯 핵심 경쟁력
+              </h3>
+              <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px'}}>
+                <div style={{textAlign: 'center', padding: '20px'}}>
+                  <div style={{fontSize: '40px', marginBottom: '10px'}}>🏭</div>
+                  <h4 style={{color: '#16a34a', marginBottom: '10px'}}>독점적 수입 채널</h4>
+                  <p style={{color: '#166534', fontSize: '16px'}}>개인이 불가능한 대량 금 수입 독점 대행</p>
+                </div>
+                <div style={{textAlign: 'center', padding: '20px'}}>
+                  <div style={{fontSize: '40px', marginBottom: '10px'}}>⚡</div>
+                  <h4 style={{color: '#16a34a', marginBottom: '10px'}}>즉시 유동성</h4>
+                  <p style={{color: '#166534', fontSize: '16px'}}>NFT 담보로 즉시 현금 확보 가능</p>
+                </div>
+                <div style={{textAlign: 'center', padding: '20px'}}>
+                  <div style={{fontSize: '40px', marginBottom: '10px'}}>🛡️</div>
+                  <h4 style={{color: '#16a34a', marginBottom: '10px'}}>안전한 투자</h4>
+                  <p style={{color: '#166534', fontSize: '16px'}}>실물 금 기반 NFT로 안전성 보장</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* 수익 구조 */}
+        {activeTab === 'revenue' && (
+          <div>
+            <h1 style={titleStyle}>수익 구조</h1>
+            
+            <div style={{...cardStyle, background: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)', marginBottom: '40px'}}>
+              <h3 style={{fontSize: '32px', color: '#92400e', marginBottom: '30px', textAlign: 'center'}}>
+                주요 수익원: 관부가세 차익
+              </h3>
+              <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px'}}>
+                <div style={{background: 'white', padding: '25px', borderRadius: '12px'}}>
+                  <h4 style={{fontSize: '24px', color: '#92400e', marginBottom: '15px'}}>일반 소매 구매</h4>
+                  <div style={{fontSize: '18px', lineHeight: '1.8', color: '#a16207'}}>
+                    <div>• 국제 금시세: 87%</div>
+                    <div>• 관부가세: 13%</div>
+                    <div>• 소매 마진: 5-10%</div>
+                    <div style={{borderTop: '2px solid #fbbf24', paddingTop: '10px', marginTop: '10px', fontWeight: 'bold'}}>
+                      총 비용: 105-110%
+                    </div>
+                  </div>
+                </div>
+                <div style={{background: 'white', padding: '25px', borderRadius: '12px'}}>
+                  <h4 style={{fontSize: '24px', color: '#92400e', marginBottom: '15px'}}>컨플루언스 불리온</h4>
+                  <div style={{fontSize: '18px', lineHeight: '1.8', color: '#a16207'}}>
+                    <div>• 국제 금시세: 87%</div>
+                    <div>• 운송/보험: 1%</div>
+                    <div>• 서비스 수수료: 2%</div>
+                    <div style={{borderTop: '2px solid #fbbf24', paddingTop: '10px', marginTop: '10px', fontWeight: 'bold'}}>
+                      총 비용: 90%
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style={{textAlign: 'center', marginTop: '30px'}}>
+                <div style={{fontSize: '36px', fontWeight: 'bold', color: '#dc2626'}}>
+                  고객 절약: 15-20% | 회사 수익: 13% 관부가세 차익
+                </div>
+              </div>
+            </div>
+
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px'}}>
+              <div style={cardStyle}>
+                <h3 style={{fontSize: '24px', color: '#1e293b', marginBottom: '20px', textAlign: 'center'}}>
+                  💰 수익원 분석
+                </h3>
+                <div style={{fontSize: '18px', lineHeight: '2'}}>
+                  <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '10px'}}>
+                    <span>관부가세 차익</span>
+                    <strong style={{color: '#dc2626'}}>85%</strong>
+                  </div>
+                  <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '10px'}}>
+                    <span>대출 이자 수익</span>
+                    <strong style={{color: '#dc2626'}}>10%</strong>
+                  </div>
+                  <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '10px'}}>
+                    <span>NFT 거래 수수료</span>
+                    <strong style={{color: '#dc2626'}}>3%</strong>
+                  </div>
+                  <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '10px'}}>
+                    <span>기타 서비스</span>
+                    <strong style={{color: '#dc2626'}}>2%</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div style={cardStyle}>
+                <h3 style={{fontSize: '24px', color: '#1e293b', marginBottom: '20px', textAlign: 'center'}}>
+                  📈 수익 시뮬레이션
+                </h3>
+                <div style={{fontSize: '16px', lineHeight: '1.8', color: '#374151'}}>
+                  <div style={{marginBottom: '15px', padding: '15px', background: '#f0fdf4', borderRadius: '8px'}}>
+                    <strong>월 거래량 10억원 기준</strong><br/>
+                    관부가세 차익: 1.3억원<br/>
+                    대출 이자: 1,500만원<br/>
+                    <strong style={{color: '#16a34a'}}>월 총 수익: 1.45억원</strong>
+                  </div>
+                  <div style={{padding: '15px', background: '#fef3c7', borderRadius: '8px'}}>
+                    <strong>연간 예상 수익</strong><br/>
+                    <span style={{fontSize: '24px', fontWeight: 'bold', color: '#92400e'}}>17.4억원</span>
                   </div>
                 </div>
               </div>
@@ -218,97 +304,156 @@ const SimpleTest = () => {
           </div>
         )}
 
-        {/* 가격 구조 */}
-        {activeTab === 'pricing' && (
+        {/* NFT 담보대출 */}
+        {activeTab === 'nft' && (
           <div>
-            <h2 style={{fontSize: '36px', fontWeight: 'bold', textAlign: 'center', marginBottom: '40px', color: '#1e293b'}}>
-              투명한 가격 구조
-            </h2>
+            <h1 style={titleStyle}>NFT 담보대출 서비스</h1>
             
-            <div style={cardStyle}>
-              <h3 style={{fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', color: '#1e293b'}}>
-                비용 구조 상세 (1억원 투자 기준)
+            <div style={{...cardStyle, background: 'linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%)', marginBottom: '40px'}}>
+              <h3 style={{fontSize: '32px', color: '#3730a3', marginBottom: '25px', textAlign: 'center'}}>
+                핵심 서비스: 즉시 유동성 제공
               </h3>
-              <div style={{overflowX: 'auto'}}>
-                <table style={{width: '100%', borderCollapse: 'collapse'}}>
-                  <thead>
-                    <tr style={{background: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)', color: 'white'}}>
-                      <th style={{padding: '16px', textAlign: 'left', borderRadius: '8px 0 0 0'}}>항목</th>
-                      <th style={{padding: '16px', textAlign: 'center'}}>비율</th>
-                      <th style={{padding: '16px', textAlign: 'right', borderRadius: '0 8px 0 0'}}>금액</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      { item: '국제 금 시세', ratio: '87%', amount: '8,700만원', bg: 'white' },
-                      { item: '운송/보험', ratio: '1%', amount: '100만원', bg: '#f8fafc' },
-                      { item: '수입 대행 수수료', ratio: '2%', amount: '200만원', bg: 'white' },
-                      { item: '총 비용', ratio: '90%', amount: '9,000만원', bg: '#dbeafe', bold: true },
-                      { item: '절약 금액', ratio: '10%', amount: '1,000만원', bg: '#dcfce7', bold: true, color: '#16a34a' }
-                    ].map((row, index) => (
-                      <tr key={index} style={{background: row.bg}}>
-                        <td style={{padding: '12px', fontWeight: row.bold ? 'bold' : 'normal', color: row.color || '#374151'}}>{row.item}</td>
-                        <td style={{padding: '12px', textAlign: 'center', fontWeight: row.bold ? 'bold' : 'normal', color: row.color || '#374151'}}>{row.ratio}</td>
-                        <td style={{padding: '12px', textAlign: 'right', fontWeight: row.bold ? 'bold' : 'normal', color: row.color || '#374151'}}>{row.amount}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '25px'}}>
+                <div style={{textAlign: 'center', padding: '20px', background: 'white', borderRadius: '12px'}}>
+                  <div style={{fontSize: '48px', marginBottom: '15px'}}>⚡</div>
+                  <h4 style={{color: '#3730a3', marginBottom: '10px'}}>즉시 대출</h4>
+                  <p style={{color: '#4338ca'}}>NFT 담보 설정 후<br/>5분 내 현금 지급</p>
+                </div>
+                <div style={{textAlign: 'center', padding: '20px', background: 'white', borderRadius: '12px'}}>
+                  <div style={{fontSize: '48px', marginBottom: '15px'}}>💎</div>
+                  <h4 style={{color: '#3730a3', marginBottom: '10px'}}>실물 담보</h4>
+                  <p style={{color: '#4338ca'}}>99.99% 순도 금<br/>실물 기반 안전성</p>
+                </div>
+                <div style={{textAlign: 'center', padding: '20px', background: 'white', borderRadius: '12px'}}>
+                  <div style={{fontSize: '48px', marginBottom: '15px'}}>📊</div>
+                  <h4 style={{color: '#3730a3', marginBottom: '10px'}}>투명한 평가</h4>
+                  <p style={{color: '#4338ca'}}>실시간 금시세 연동<br/>공정한 담보 평가</p>
+                </div>
+              </div>
+            </div>
+
+            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px'}}>
+              <div style={cardStyle}>
+                <h3 style={{fontSize: '24px', color: '#1e293b', marginBottom: '20px', textAlign: 'center'}}>
+                  💳 대출 조건
+                </h3>
+                <div style={{fontSize: '18px', lineHeight: '2'}}>
+                  <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '15px', padding: '10px', background: '#f8fafc', borderRadius: '8px'}}>
+                    <span>금리</span>
+                    <strong style={{color: '#dc2626'}}>연 5%</strong>
+                  </div>
+                  <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '15px', padding: '10px', background: '#f8fafc', borderRadius: '8px'}}>
+                    <span>LTV</span>
+                    <strong style={{color: '#dc2626'}}>최대 70%</strong>
+                  </div>
+                  <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '15px', padding: '10px', background: '#f8fafc', borderRadius: '8px'}}>
+                    <span>최소 대출</span>
+                    <strong style={{color: '#dc2626'}}>100만원</strong>
+                  </div>
+                  <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '15px', padding: '10px', background: '#f8fafc', borderRadius: '8px'}}>
+                    <span>대출 기간</span>
+                    <strong style={{color: '#dc2626'}}>1-36개월</strong>
+                  </div>
+                  <div style={{display: 'flex', justifyContent: 'space-between', padding: '10px', background: '#f8fafc', borderRadius: '8px'}}>
+                    <span>상환 방식</span>
+                    <strong style={{color: '#dc2626'}}>원리금균등</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div style={cardStyle}>
+                <h3 style={{fontSize: '24px', color: '#1e293b', marginBottom: '20px', textAlign: 'center'}}>
+                  🔄 대출 프로세스
+                </h3>
+                <div style={{fontSize: '16px', lineHeight: '1.8'}}>
+                  <div style={{marginBottom: '20px', padding: '15px', background: '#e0f2fe', borderRadius: '8px', borderLeft: '4px solid #0284c7'}}>
+                    <strong style={{color: '#0284c7'}}>1단계: NFT 담보 설정</strong><br/>
+                    <span style={{color: '#0369a1'}}>보유 금 NFT를 스마트 컨트랙트에 예치</span>
+                  </div>
+                  <div style={{marginBottom: '20px', padding: '15px', background: '#f0fdf4', borderRadius: '8px', borderLeft: '4px solid #16a34a'}}>
+                    <strong style={{color: '#16a34a'}}>2단계: 자동 평가</strong><br/>
+                    <span style={{color: '#15803d'}}>실시간 금시세 기반 담보가치 산정</span>
+                  </div>
+                  <div style={{marginBottom: '20px', padding: '15px', background: '#fef3c7', borderRadius: '8px', borderLeft: '4px solid #d97706'}}>
+                    <strong style={{color: '#d97706'}}>3단계: 즉시 승인</strong><br/>
+                    <span style={{color: '#b45309'}}>AI 기반 자동 심사 및 승인</span>
+                  </div>
+                  <div style={{padding: '15px', background: '#fce7f3', borderRadius: '8px', borderLeft: '4px solid #be185d'}}>
+                    <strong style={{color: '#be185d'}}>4단계: 현금 지급</strong><br/>
+                    <span style={{color: '#9d174d'}}>승인 후 5분 내 계좌 입금</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         )}
 
-        {/* 상품 구성 */}
-        {activeTab === 'products' && (
+        {/* 시장 분석 */}
+        {activeTab === 'market' && (
           <div>
-            <h2 style={{fontSize: '36px', fontWeight: 'bold', textAlign: 'center', marginBottom: '40px', color: '#1e293b'}}>
-              상품 구성
-            </h2>
+            <h1 style={titleStyle}>시장 분석</h1>
             
-            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px'}}>
-              {[
-                { 
-                  icon: '🥇', 
-                  title: '금 수입 대행', 
-                  features: ['1kg 이상 대량 수입', '99.99% 순도 보장', '안전한 보관 서비스', '품질 인증서 제공']
-                },
-                { 
-                  icon: '🪙', 
-                  title: 'NFT 증권화', 
-                  features: ['실물 금 기반 NFT', '분할 소유 가능', '투명한 소유권', '즉시 거래 가능']
-                },
-                { 
-                  icon: '🏦', 
-                  title: '담보대출', 
-                  features: ['5% 저금리', 'LTV 70% 까지', '즉시 대출 실행', '유연한 상환 조건']
-                }
-              ].map((service, index) => (
-                <div key={index} style={{...cardStyle, textAlign: 'center', transition: 'transform 0.3s ease'}}>
-                  <div style={{fontSize: '48px', marginBottom: '16px'}}>{service.icon}</div>
-                  <h3 style={{fontSize: '24px', fontWeight: 'bold', marginBottom: '16px', color: '#1e293b'}}>{service.title}</h3>
-                  <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} style={{
-                        color: '#64748b',
-                        marginBottom: '8px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}>
-                        <span style={{
-                          width: '6px',
-                          height: '6px',
-                          background: '#fbbf24',
-                          borderRadius: '50%',
-                          marginRight: '8px'
-                        }}></span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', marginBottom: '40px'}}>
+              <div style={{...cardStyle, background: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)'}}>
+                <h3 style={{fontSize: '28px', color: '#92400e', marginBottom: '25px', textAlign: 'center'}}>
+                  📊 국내 금 시장 규모
+                </h3>
+                <div style={{textAlign: 'center'}}>
+                  <div style={{fontSize: '48px', fontWeight: 'bold', color: '#92400e', marginBottom: '10px'}}>12조원</div>
+                  <div style={{fontSize: '18px', color: '#a16207', marginBottom: '20px'}}>연간 금 거래 규모</div>
+                  <div style={{fontSize: '16px', color: '#a16207', lineHeight: '1.6'}}>
+                    • 개인 투자자 비중: 65%<br/>
+                    • 연평균 성장률: 8.5%<br/>
+                    • 온라인 거래 증가율: 15%
+                  </div>
                 </div>
-              ))}
+              </div>
+
+              <div style={{...cardStyle, background: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)'}}>
+                <h3 style={{fontSize: '28px', color: '#1e40af', marginBottom: '25px', textAlign: 'center'}}>
+                  🎯 타겟 시장
+                </h3>
+                <div style={{fontSize: '18px', lineHeight: '2', color: '#1e40af'}}>
+                  <div style={{marginBottom: '15px', padding: '15px', background: 'white', borderRadius: '8px'}}>
+                    <strong>1차 타겟:</strong> 금 투자자 (100만명)
+                  </div>
+                  <div style={{marginBottom: '15px', padding: '15px', background: 'white', borderRadius: '8px'}}>
+                    <strong>2차 타겟:</strong> 대출 수요자 (500만명)
+                  </div>
+                  <div style={{padding: '15px', background: 'white', borderRadius: '8px'}}>
+                    <strong>3차 타겟:</strong> NFT 투자자 (50만명)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style={{...cardStyle, background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)'}}>
+              <h3 style={{fontSize: '28px', color: '#16a34a', marginBottom: '30px', textAlign: 'center'}}>
+                💡 시장 기회
+              </h3>
+              <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '25px'}}>
+                <div style={{background: 'white', padding: '25px', borderRadius: '12px'}}>
+                  <h4 style={{color: '#16a34a', marginBottom: '15px', fontSize: '20px'}}>🏭 수입 독점 기회</h4>
+                  <p style={{color: '#166534', fontSize: '16px', lineHeight: '1.6'}}>
+                    개인이 불가능한 대량 금 수입을 독점적으로 대행할 수 있는 
+                    유일한 플랫폼으로 시장 선점 가능
+                  </p>
+                </div>
+                <div style={{background: 'white', padding: '25px', borderRadius: '12px'}}>
+                  <h4 style={{color: '#16a34a', marginBottom: '15px', fontSize: '20px'}}>💰 관부가세 차익</h4>
+                  <p style={{color: '#166534', fontSize: '16px', lineHeight: '1.6'}}>
+                    13% 관부가세를 회피할 수 있는 합법적 구조로 
+                    고객과 회사 모두에게 윈-윈 모델 구축
+                  </p>
+                </div>
+                <div style={{background: 'white', padding: '25px', borderRadius: '12px'}}>
+                  <h4 style={{color: '#16a34a', marginBottom: '15px', fontSize: '20px'}}>🚀 NFT 금융 혁신</h4>
+                  <p style={{color: '#166534', fontSize: '16px', lineHeight: '1.6'}}>
+                    실물 자산 기반 NFT 담보대출로 
+                    새로운 금융 서비스 시장 창출
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -316,75 +461,98 @@ const SimpleTest = () => {
         {/* 로드맵 */}
         {activeTab === 'roadmap' && (
           <div>
-            <h2 style={{fontSize: '36px', fontWeight: 'bold', textAlign: 'center', marginBottom: '40px', color: '#1e293b'}}>
-              개발 로드맵
-            </h2>
+            <h1 style={titleStyle}>사업 로드맵</h1>
             
-            <div style={{display: 'flex', flexDirection: 'column', gap: '24px'}}>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '30px'}}>
               {[
                 { 
-                  phase: '1', 
-                  title: 'Phase 1: 플랫폼 구축', 
-                  period: 'Q1 2024', 
-                  desc: '기본 플랫폼 개발, 금 수입 대행 서비스 시작, 초기 고객 확보',
-                  target: '목표: 100명 고객, 1톤 금 수입',
-                  color: '#3b82f6'
+                  phase: 'Q1 2024', 
+                  title: '플랫폼 구축 및 라이선스 확보', 
+                  items: [
+                    '금 수입 대행 라이선스 취득',
+                    '공동구매 플랫폼 개발',
+                    '초기 고객 100명 확보',
+                    '첫 1톤 금 수입 실행'
+                  ],
+                  color: '#3b82f6',
+                  target: '목표: 10억원 거래'
                 },
                 { 
-                  phase: '2', 
-                  title: 'Phase 2: NFT 증권화', 
-                  period: 'Q2 2024', 
-                  desc: '실물 금 NFT 발행, 마켓플레이스 오픈, 분할 소유 서비스',
-                  target: '목표: 1,000개 NFT 발행, 활성 거래',
-                  color: '#f59e0b'
+                  phase: 'Q2 2024', 
+                  title: 'NFT 증권화 시스템 런칭', 
+                  items: [
+                    '블록체인 기반 NFT 발행 시스템',
+                    '실물 금-NFT 연동 시스템',
+                    'NFT 마켓플레이스 오픈',
+                    '1,000개 NFT 발행'
+                  ],
+                  color: '#f59e0b',
+                  target: '목표: 50억원 거래'
                 },
                 { 
-                  phase: '3', 
-                  title: 'Phase 3: 담보대출 서비스', 
-                  period: 'Q3 2024', 
-                  desc: 'NFT 담보 대출 서비스 런칭, 금융 파트너십 구축',
-                  target: '목표: 50억원 대출 실행',
-                  color: '#10b981'
+                  phase: 'Q3 2024', 
+                  title: 'NFT 담보대출 서비스 시작', 
+                  items: [
+                    '스마트 컨트랙트 기반 대출 시스템',
+                    '자동 담보 평가 시스템',
+                    '금융권 파트너십 구축',
+                    '100억원 대출 실행'
+                  ],
+                  color: '#10b981',
+                  target: '목표: 100억원 대출'
                 },
                 { 
-                  phase: '4', 
-                  title: 'Phase 4: 글로벌 확장', 
-                  period: 'Q4 2024', 
-                  desc: '해외 시장 진출, 다국가 서비스 확장, 글로벌 파트너십',
-                  target: '목표: 아시아 3개국 서비스 확장',
-                  color: '#8b5cf6'
+                  phase: 'Q4 2024', 
+                  title: '사업 확장 및 글로벌 진출', 
+                  items: [
+                    '다양한 귀금속 확장 (은, 백금)',
+                    '해외 수입 채널 확보',
+                    '아시아 3개국 서비스 확장',
+                    'IPO 준비'
+                  ],
+                  color: '#8b5cf6',
+                  target: '목표: 500억원 거래'
                 }
               ].map((phase, index) => (
-                <div key={index} style={{display: 'flex', alignItems: 'flex-start', gap: '20px'}}>
+                <div key={index} style={{display: 'flex', alignItems: 'flex-start', gap: '30px'}}>
                   <div style={{
-                    width: '60px',
-                    height: '60px',
-                    borderRadius: '50%',
+                    minWidth: '120px',
+                    padding: '15px',
+                    borderRadius: '12px',
                     background: phase.color,
                     color: 'white',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '24px',
-                    fontWeight: 'bold',
-                    flexShrink: 0
+                    textAlign: 'center',
+                    fontSize: '18px',
+                    fontWeight: 'bold'
                   }}>
                     {phase.phase}
                   </div>
                   <div style={{...cardStyle, flex: 1}}>
-                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px'}}>
-                      <h3 style={{fontSize: '24px', fontWeight: 'bold', color: '#1e293b', margin: 0}}>{phase.title}</h3>
-                      <span style={{fontSize: '16px', fontWeight: 'bold', color: phase.color}}>{phase.period}</span>
+                    <h3 style={{fontSize: '24px', fontWeight: 'bold', color: '#1e293b', marginBottom: '20px'}}>
+                      {phase.title}
+                    </h3>
+                    <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '15px', marginBottom: '20px'}}>
+                      {phase.items.map((item, idx) => (
+                        <div key={idx} style={{
+                          padding: '12px',
+                          background: '#f8fafc',
+                          borderRadius: '8px',
+                          borderLeft: `4px solid ${phase.color}`,
+                          fontSize: '16px',
+                          color: '#374151'
+                        }}>
+                          • {item}
+                        </div>
+                      ))}
                     </div>
-                    <p style={{color: '#64748b', marginBottom: '12px', lineHeight: '1.6'}}>{phase.desc}</p>
                     <div style={{
                       display: 'inline-block',
-                      padding: '6px 12px',
+                      padding: '8px 16px',
                       borderRadius: '20px',
                       background: `${phase.color}20`,
                       color: phase.color,
-                      fontSize: '14px',
-                      fontWeight: '600'
+                      fontSize: '16px',
+                      fontWeight: 'bold'
                     }}>
                       {phase.target}
                     </div>
@@ -394,48 +562,6 @@ const SimpleTest = () => {
             </div>
           </div>
         )}
-      </div>
-
-      {/* Footer */}
-      <div style={{
-        background: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)',
-        color: 'white',
-        padding: '40px 20px',
-        textAlign: 'center'
-      }}>
-        <h3 style={{fontSize: '28px', fontWeight: 'bold', marginBottom: '16px'}}>
-          CONFLUENCE BULLION
-        </h3>
-        <p style={{marginBottom: '24px', opacity: 0.8}}>
-          금융의 미래를 함께 만들어갑니다
-        </p>
-        <div>
-          <button style={{
-            background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%)',
-            color: 'white',
-            padding: '12px 24px',
-            border: 'none',
-            borderRadius: '8px',
-            fontSize: '16px',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            marginRight: '12px'
-          }}>
-            지금 시작하기
-          </button>
-          <button style={{
-            background: 'rgba(255, 255, 255, 0.2)',
-            color: 'white',
-            padding: '12px 24px',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
-            borderRadius: '8px',
-            fontSize: '16px',
-            fontWeight: 'bold',
-            cursor: 'pointer'
-          }}>
-            문의하기
-          </button>
-        </div>
       </div>
     </div>
   );
