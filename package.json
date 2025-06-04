@@ -1,6 +1,6 @@
 {
   "name": "confluence-bullion-v2",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "homepage": "https://gma3561.github.io/confluence-bullion-v2",
   "dependencies": {

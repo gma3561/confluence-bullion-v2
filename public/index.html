@@ -2,33 +2,33 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico?v=20240603164500" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico?v=20240604105500" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Confluence Bullion - 금 수입 대행 및 NFT 증권화 플랫폼 - 럭셔리 버전"
+      content="Confluence Bullion - 금 수입 대행 및 NFT 증권화 플랫폼 - 럭셔리 버전 FINAL"
     />
-    <!-- 최강 캐시 방지 메타 태그들 -->
+    <!-- 강력한 캐시 무효화 -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, proxy-revalidate, max-age=0, s-maxage=0" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <meta http-equiv="Surrogate-Control" content="no-store" />
-    <meta http-equiv="Last-Modified" content="Mon, 03 Jun 2024 16:45:00 GMT" />
+    <meta http-equiv="Last-Modified" content="Wed, 04 Jun 2025 10:55:00 GMT" />
     <meta name="cache-control" content="no-cache, no-store, must-revalidate" />
     <meta name="expires" content="0" />
     <meta name="pragma" content="no-cache" />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
-    <!-- 강제 새로고침을 위한 버전 -->
-    <meta name="version" content="LUXURY-2024.06.03.16.45.FINAL" />
-    <meta name="build-time" content="1717408500000" />
+    <meta name="version" content="LUXURY-FINAL-2024.06.04.10.55.ULTIMATE" />
+    <meta name="build-time" content="1749001500000" />
     <meta name="force-refresh" content="true" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png?v=20240603164500" />
+    <meta name="cache-buster" content="20240604105500" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png?v=20240604105500" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json?v=20240603164500" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json?v=20240604105500" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -38,9 +38,9 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Confluence Bullion v2 - LUXURY EDITION - 2024.06.03</title>
+    <title>Confluence Bullion v2 - LUXURY FINAL EDITION - 2024.06.04.10.55</title>
     <script>
-      // 강제 캐시 무효화
+      // 서비스 워커 제거
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(function(registrations) {
           for(let registration of registrations) {
@@ -48,10 +48,18 @@
           }
         });
       }
+      
       // 로컬 스토리지 클리어
       if (typeof(Storage) !== "undefined") {
         localStorage.clear();
         sessionStorage.clear();
+      }
+      
+      // 강제 새로고침
+      if (performance.navigation.type !== 1) {
+        setTimeout(function() {
+          window.location.reload(true);
+        }, 100);
       }
     </script>
   </head>
